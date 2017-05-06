@@ -842,6 +842,17 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Rb-6d-tOK">
+                                <rect key="frame" x="14" y="132" width="452" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Depósito" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jpC-cT-sKZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="D6h-0R-UUZ" kind="show" id="jYT-Fq-0p5"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -853,6 +864,19 @@
                 <customObject id="HGP-VI-Fyr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-535" y="1138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mog-wI-gev">
+            <objects>
+                <viewController id="D6h-0R-UUZ" sceneMemberID="viewController">
+                    <view key="view" id="sdP-69-gv4">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="imc-Q3-zNz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-535" y="1592"/>
         </scene>
         <!--Cliente Broker-->
         <scene sceneID="hIz-AP-VOD">
@@ -918,6 +942,17 @@
                                 </buttonCell>
                                 <connections>
                                     <segue destination="CLy-HG-GEQ" kind="show" id="cgL-pb-qAs"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PIB-CS-ZKA">
+                                <rect key="frame" x="14" y="24" width="452" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Sair" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xF4-Xz-0DL">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="fechar:" target="XfG-lQ-9wD" id="2WD-aC-Arb"/>
                                 </connections>
                             </button>
                         </subviews>
