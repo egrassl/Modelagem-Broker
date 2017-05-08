@@ -28,11 +28,6 @@ class CriarContaController: NSViewController {
        
     }
     
-    func addAcoesCliente(cliente: Cliente){
-        cliente.addAcao(empresa: "Coca Cola", quantidade: 1000)
-        cliente.addAcao(empresa: "Guaraná", quantidade: 0);
-    }
-    
     func messageBox(message: String){
         let alert = NSAlert()
         alert.messageText = message
@@ -54,7 +49,6 @@ class CriarContaController: NSViewController {
             novoCliente.contaBroker.efetivaConta(login: nomeUsuario.stringValue, senha: senha.stringValue, contaBanco: contaBanco.stringValue)
             ClientPool.adicionaCliente(novoCliente: novoCliente)
             ClientPool.ativaLogin(login: nomeUsuario.stringValue, senha: senha.stringValue)
-            addAcoesCliente(cliente: ClientPool.getClienteAtivo())
             self.messageBox(message: "Cliente adicionado com sucesso!")
             self.view.window?.close()
         }

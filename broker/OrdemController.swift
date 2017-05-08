@@ -38,12 +38,29 @@ class OrdemController: NSViewController {
         quantidade.stringValue = String(acoes[botaoAcoes.indexOfSelectedItem].quantidade)
     }
     
+    func messageBox(message: String){
+        let alert = NSAlert()
+        alert.messageText = message
+        alert.runModal()
+    }
+    
     @IBAction func botaoCancelarPressionado(_ sender: Any) {
         self.view.window?.close()
     }
     
     @IBAction func selecionarItem(_ sender: NSPopUpButton) {
         quantidade.stringValue = String(acoes[botaoAcoes.indexOfSelectedItem].quantidade)
+    }
+    
+    @IBAction func efetuarOrdem(_ sender: Any) {
+        let cliente = ClientPool.getClienteAtivo()
+        let acao = acoes[botaoAcoes.indexOfSelectedItem]
+        if cliente.efetuarOrdem(acao: acao, valor: preco.doubleValue, quantidade: Int(quantidade.intValue), tipo: tipo){
+            messageBox(message: "Ordem efetuada com sucesso!")
+            self.view.window?.close()
+        } else {
+            messageBox(message: "Erro ao efetuar Ordem!")
+        }
     }
     
 }

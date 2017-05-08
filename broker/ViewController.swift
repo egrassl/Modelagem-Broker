@@ -16,9 +16,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let client = TCPClient(address: "localhost", port: 25565)
-        print(sendStringWithResponseInSocket(destinationIP: "localhost", port: 25565, message: "Bom dia!"))
-        
+        BrokeSocket.backgroundServer(address: "127.0.0.1", port: 25566)
         
     }
 
@@ -26,31 +24,6 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
-    }
-    
-    func sendStringWithResponseInSocket(destinationIP: String, port: Int, message:String) -> String{
-        var socketMessage = message
-        socketMessage.append("\n|")
-        let client = TCPClient(address: destinationIP, port: Int32(port))
-        switch client.connect(timeout: 2) {
-        case .success:
-            switch client.send(string: socketMessage){
-            case .success:
-                guard let data = client.read(1024*10, timeout: 2) else {return ""}
-                client.close()
-                if let response = String(bytes: data, encoding: .utf8){
-                    return response
-                } else {
-                    return ""
-                }
-            default: break
-            }
-            break
-        default:
-            break
-        }
-        client.close()
-        return ""
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {

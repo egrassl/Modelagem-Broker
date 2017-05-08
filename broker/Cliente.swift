@@ -21,16 +21,28 @@ class Cliente: NSObject {
         contaBroker = Conta()
         self.id = id
         self.nome = nome
+        super.init()
+        var startNumber = 1000
+        self.addAcao(empresa: "Coca Cola", quantidade: startNumber)
+        self.addAcao(empresa: "Guaraná", quantidade: startNumber)
     }
     
-    public func efetuarOrdem(acao: Acao, valor: Double, tipo: Int) -> Bool{
+    public func efetuarOrdem(acao: Acao, valor: Double, quantidade: Int,tipo: Int) -> Bool{
         let indexAcao = acoes.index(of: acao)
-        if acoes[indexAcao!].quantidade < acao.quantidade{
+        if acoes[indexAcao!].quantidade < quantidade{
             return false
         }
-        let novaOrdem = Ordem(acao: acoes[indexAcao!], valor: valor, tipo: tipo)
+        
+        acoes[indexAcao!].quantidade -= quantidade
+        
+        let novaAcao = Acao(empresa: acao.empresa, quantidade: quantidade)
+        let novaOrdem = Ordem(acao: novaAcao, valor: valor, tipo: tipo)
         self.orderns.append(novaOrdem)
+        
         //codigo socket aqui
+        var message = String(tipo) + " | " + String(novaOrdem.valor) + " | " + novaOrdem.acao.empresa + " | " + String(novaOrdem.acao.quantidade)
+        BrokeSocket.sendStringInSocket(destinationIP: "127.0.0.1", port: 25565, message: message)
+        
         return true
     }
     

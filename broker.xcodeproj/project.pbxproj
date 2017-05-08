@@ -15,6 +15,7 @@
 		469561831EB6814400393442 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 469561821EB6814400393442 /* Assets.xcassets */; };
 		469561861EB6814400393442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 469561841EB6814400393442 /* Main.storyboard */; };
 		469561911EB68AE200393442 /* OrdemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695618F1EB68AE200393442 /* OrdemController.swift */; };
+		46E172EA1EBD548A000F93ED /* BrokeSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E172E91EBD548A000F93ED /* BrokeSocket.swift */; };
 		46F40F1F1EB6D24D002542DA /* Cliente.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F40F1E1EB6D24D002542DA /* Cliente.swift */; };
 		46F40F211EB6D4F0002542DA /* Conta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F40F201EB6D4F0002542DA /* Conta.swift */; };
 		46F40F231EB6F0B4002542DA /* ClientPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F40F221EB6F0B4002542DA /* ClientPool.swift */; };
@@ -36,6 +37,7 @@
 		469561851EB6814400393442 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		469561871EB6814400393442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4695618F1EB68AE200393442 /* OrdemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrdemController.swift; sourceTree = "<group>"; };
+		46E172E91EBD548A000F93ED /* BrokeSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrokeSocket.swift; sourceTree = "<group>"; };
 		46F40F1E1EB6D24D002542DA /* Cliente.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cliente.swift; sourceTree = "<group>"; };
 		46F40F201EB6D4F0002542DA /* Conta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conta.swift; sourceTree = "<group>"; };
 		46F40F221EB6F0B4002542DA /* ClientPool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientPool.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				461B98DE1EB8FB3A00479081 /* LoginController.swift */,
 				461B98E01EB9107300479081 /* Acao.swift */,
 				461B98E21EBA274300479081 /* Ordem.swift */,
+				46E172E91EBD548A000F93ED /* BrokeSocket.swift */,
 			);
 			path = broker;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E172EA1EBD548A000F93ED /* BrokeSocket.swift in Sources */,
 				46F40F1F1EB6D24D002542DA /* Cliente.swift in Sources */,
 				461B98E11EB9107300479081 /* Acao.swift in Sources */,
 				46F40F211EB6D4F0002542DA /* Conta.swift in Sources */,
