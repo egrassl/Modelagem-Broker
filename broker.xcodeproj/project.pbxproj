@@ -10,6 +10,10 @@
 		461B98DF1EB8FB3A00479081 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B98DE1EB8FB3A00479081 /* LoginController.swift */; };
 		461B98E11EB9107300479081 /* Acao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B98E01EB9107300479081 /* Acao.swift */; };
 		461B98E31EBA274300479081 /* Ordem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461B98E21EBA274300479081 /* Ordem.swift */; };
+		462026861EC2174800A8496E /* Carteira.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462026851EC2174800A8496E /* Carteira.swift */; };
+		462026881EC23F9100A8496E /* DepositoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462026871EC23F9100A8496E /* DepositoController.swift */; };
+		4620268A1EC2451E00A8496E /* RelatorioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462026891EC2451E00A8496E /* RelatorioController.swift */; };
+		4620268C1EC2457000A8496E /* RelatorioTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620268B1EC2457000A8496E /* RelatorioTable.swift */; };
 		4695617F1EB6814400393442 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4695617E1EB6814400393442 /* AppDelegate.swift */; };
 		469561811EB6814400393442 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469561801EB6814400393442 /* ViewController.swift */; };
 		469561831EB6814400393442 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 469561821EB6814400393442 /* Assets.xcassets */; };
@@ -30,6 +34,10 @@
 		461B98DE1EB8FB3A00479081 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		461B98E01EB9107300479081 /* Acao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acao.swift; sourceTree = "<group>"; };
 		461B98E21EBA274300479081 /* Ordem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ordem.swift; sourceTree = "<group>"; };
+		462026851EC2174800A8496E /* Carteira.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Carteira.swift; sourceTree = "<group>"; };
+		462026871EC23F9100A8496E /* DepositoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepositoController.swift; sourceTree = "<group>"; };
+		462026891EC2451E00A8496E /* RelatorioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelatorioController.swift; sourceTree = "<group>"; };
+		4620268B1EC2457000A8496E /* RelatorioTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RelatorioTable.swift; sourceTree = "<group>"; };
 		4695617B1EB6814400393442 /* broker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = broker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4695617E1EB6814400393442 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		469561801EB6814400393442 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,7 @@
 				4695618F1EB68AE200393442 /* OrdemController.swift */,
 				46F40F1E1EB6D24D002542DA /* Cliente.swift */,
 				46F40F201EB6D4F0002542DA /* Conta.swift */,
+				462026851EC2174800A8496E /* Carteira.swift */,
 				46F40F221EB6F0B4002542DA /* ClientPool.swift */,
 				46F40F281EB6F648002542DA /* CriarContaController.swift */,
 				46F40F2A1EB6FED5002542DA /* GerenciaContaController.swift */,
@@ -94,6 +103,9 @@
 				461B98E01EB9107300479081 /* Acao.swift */,
 				461B98E21EBA274300479081 /* Ordem.swift */,
 				46E172E91EBD548A000F93ED /* BrokeSocket.swift */,
+				462026871EC23F9100A8496E /* DepositoController.swift */,
+				462026891EC2451E00A8496E /* RelatorioController.swift */,
+				4620268B1EC2457000A8496E /* RelatorioTable.swift */,
 			);
 			path = broker;
 			sourceTree = "<group>";
@@ -242,13 +254,17 @@
 				46F40F1F1EB6D24D002542DA /* Cliente.swift in Sources */,
 				461B98E11EB9107300479081 /* Acao.swift in Sources */,
 				46F40F211EB6D4F0002542DA /* Conta.swift in Sources */,
+				462026881EC23F9100A8496E /* DepositoController.swift in Sources */,
 				46F40F231EB6F0B4002542DA /* ClientPool.swift in Sources */,
 				469561911EB68AE200393442 /* OrdemController.swift in Sources */,
 				461B98DF1EB8FB3A00479081 /* LoginController.swift in Sources */,
+				4620268C1EC2457000A8496E /* RelatorioTable.swift in Sources */,
+				462026861EC2174800A8496E /* Carteira.swift in Sources */,
 				46F40F291EB6F648002542DA /* CriarContaController.swift in Sources */,
 				469561811EB6814400393442 /* ViewController.swift in Sources */,
 				4695617F1EB6814400393442 /* AppDelegate.swift in Sources */,
 				46F40F2B1EB6FED5002542DA /* GerenciaContaController.swift in Sources */,
+				4620268A1EC2451E00A8496E /* RelatorioController.swift in Sources */,
 				461B98E31EBA274300479081 /* Ordem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

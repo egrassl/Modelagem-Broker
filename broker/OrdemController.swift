@@ -17,7 +17,7 @@ class OrdemController: NSViewController {
     @IBOutlet weak var preco: NSTextField!
     @IBOutlet weak var quantidade: NSTextField!
     
-    let acoes = ClientPool.getClienteAtivo().getAcoes()
+    let acoes = ClientPool.getClienteAtivo().carteira.getAcoes()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,6 @@ class OrdemController: NSViewController {
         if tipo == 1 {
             self.title = "Efetuar Ordem de Compra"
             botaoAcao.title = "Comprar"
-            quantidade.isEditable = false
         } else if tipo == 2 {
             self.title = "Efetuar Ordem de Venda"
             botaoAcao.title = "Vender"

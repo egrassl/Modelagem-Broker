@@ -47,7 +47,10 @@ class CriarContaController: NSViewController {
             return
         } else {
             novoCliente.contaBroker.efetivaConta(login: nomeUsuario.stringValue, senha: senha.stringValue, contaBanco: contaBanco.stringValue)
-            ClientPool.adicionaCliente(novoCliente: novoCliente)
+            if ClientPool.adicionaCliente(novoCliente: novoCliente) == false{
+                self.messageBox(message: "Erro ao adicionar cliente")
+                return
+            }
             ClientPool.ativaLogin(login: nomeUsuario.stringValue, senha: senha.stringValue)
             self.messageBox(message: "Cliente adicionado com sucesso!")
             self.view.window?.close()

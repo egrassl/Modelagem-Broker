@@ -18,4 +18,5 @@ class Ordem: NSObject {
         self.valor = valor
         self.tipo = tipo
     }
+    
 }

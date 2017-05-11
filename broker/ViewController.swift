@@ -16,8 +16,30 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        BrokeSocket.backgroundServer(address: "127.0.0.1", port: 25566)
+        BrokeSocket.backgroundServer(address: BrokeSocket.destinationIP, port: BrokeSocket.port)
+        //print(BrokeSocket.sendStringInSocket(destinationIP: "127.0.0.1", port: 25565, message: "Oi\nOi\n"))
         
+        let message = String(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "5\n").characters.dropLast(1))
+        print("mensagem: \(message)")
+        let acoes = message.components(separatedBy: ";")
+        
+        var i = 1;
+        while i < acoes.count{
+            print("nome: " + acoes[i])
+            i += 1
+            print("valor: " + acoes[i])
+            i += 1
+            print("quantidade: " + acoes[i])
+            i += 1
+            print("data: " + acoes[i])
+            i += 1
+            print("porcentagem: " + acoes[i])
+            i += 1
+            print("")
+        }
+        
+//        print(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "2;3;11111111111"))
+//        print(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "2;3;1111112211"))
     }
 
     override var representedObject: Any? {
@@ -55,6 +77,9 @@ class ViewController: NSViewController {
                     break
                 case "Gerenciar Conta":
                     performSegue(withIdentifier: "gerenciarConta", sender: sender)
+                    break
+                case "Relatório":
+                    performSegue(withIdentifier: "relatorio", sender: self)
                     break
                 default:
                     break

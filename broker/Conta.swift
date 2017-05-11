@@ -13,17 +13,10 @@ class Conta: NSObject {
     private var estaLogado = false
     private var login = ""
     private var senha = ""
-    private var contaBanco = ""
-    private var saldo = 0.0
     
     public func estaAutorizado() -> Bool{
         return self.estaLogado
     }
-    
-    public func getSaldo() -> Double{
-        return self.saldo
-    }
-    
     
     public func autoriza(login: String, senha: String) -> Bool{
         if  self.login == login && self.senha == senha{
@@ -31,7 +24,6 @@ class Conta: NSObject {
             return true
         } else {
             return false
-            
         }
     }
     
@@ -44,8 +36,10 @@ class Conta: NSObject {
         self.estaLogado = true
         self.login = login
         self.senha = senha
-        self.contaBanco = contaBanco
-        self.saldo = 1000
+    }
+    
+    public func getLogin() -> String{
+        return self.login
     }
     
 }

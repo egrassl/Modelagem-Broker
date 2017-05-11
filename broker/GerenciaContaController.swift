@@ -22,11 +22,19 @@ class GerenciaContaController: NSViewController {
         if cliente.contaBroker.estaAutorizado(){
             nome.stringValue = cliente.nome
             cpf.stringValue = cliente.id
-            saldo.doubleValue = cliente.contaBroker.getSaldo()
+            saldo.doubleValue = cliente.carteira.getSaldo()
         } else {
             nome.stringValue = "deu bosta"
         }
         
+    }
+    @IBAction func depositoButton(_ sender: Any) {
+        performSegue(withIdentifier: "deposito", sender: self)
+        self.view.window?.close()
+    }
+    
+    @IBAction func cancelar(_ sender: Any) {
+        self.view.window?.close()
     }
     
 }

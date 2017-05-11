@@ -11,11 +11,19 @@ import SwiftSocket
 
 class BrokeSocket: NSObject {
     
-    static func backgroundServer(address: String, port: Int32){
-        let queue = DispatchQueue.global()
+    public static let destinationIP = "127.0.0.1"
+    public static let port = 25565
+    //public static let queue = DispatchQueue.init(label: "background")
+    
+    static func backgroundServer(address: String, port: Int){
+        let queue = DispatchQueue.init(label: "background")
         queue.async(){
-            serverSocketApplication(address: address, port: port)
+            serverSocketApplication(address: address, port: Int32(25566))
         }
+    }
+    
+    static func runOperation(){
+        
     }
     
     static func serverSocketApplication(address: String, port: Int32){
@@ -23,10 +31,28 @@ class BrokeSocket: NSObject {
         switch server.listen(){
         case .success:
             while true{
-                if var client = server.accept(){
-                    var d = client.read(1024*10)
+                if let client = server.accept(){
+                    let d = client.read(1024*10)
                     let message = String(bytes: d!, encoding: .utf8)
                     print(message!)
+                    let mappedMessage = message!.components(separatedBy: ";")
+                    switch mappedMessage[0] {
+                    case "1":
+                        //codigo ordem
+                        break;
+                    case "2":
+                        let testeCliente = Cliente(id: String(mappedMessage[1].characters.dropLast(1)), nome: "")
+                        if ClientPool.clienteExiste(novoCliente: testeCliente){
+                            client.send(string: "true\n")
+                        } else {
+                            client.send(string: "false\n")
+                        }
+                        //codigo e cadastrado
+                        break;
+                        
+                    default:
+                        break;
+                    }
                     client.close()
                 } else {
                     print("deu ruim")
@@ -36,6 +62,8 @@ class BrokeSocket: NSObject {
             print("deu erro")
         }
     }
+    
+    
     
     // Funcao que manda uma String para o dealBroker e retorna a resposta ou uma String vazia caso nao tenha resposta
     static func sendStringInSocket(destinationIP: String, port: Int, message:String) -> String{
