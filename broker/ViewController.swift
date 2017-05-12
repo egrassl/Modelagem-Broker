@@ -12,34 +12,20 @@ import SwiftSocket
 class ViewController: NSViewController {
     @IBOutlet weak var botaoCompra: NSButton!
     
+
+    @IBOutlet var textView: NSTextView!
+    let queue = DispatchQueue.global()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        self.textView.isEditable = true
+//        self.textView.insertText(updateAcoes())
+//        self.textView.isEditable = false
         BrokeSocket.backgroundServer(address: BrokeSocket.destinationIP, port: BrokeSocket.port)
-        //print(BrokeSocket.sendStringInSocket(destinationIP: "127.0.0.1", port: 25565, message: "Oi\nOi\n"))
+        self.updateAcoes()
         
-        let message = String(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "5\n").characters.dropLast(1))
-        print("mensagem: \(message)")
-        let acoes = message.components(separatedBy: ";")
         
-        var i = 1;
-        while i < acoes.count{
-            print("nome: " + acoes[i])
-            i += 1
-            print("valor: " + acoes[i])
-            i += 1
-            print("quantidade: " + acoes[i])
-            i += 1
-            print("data: " + acoes[i])
-            i += 1
-            print("porcentagem: " + acoes[i])
-            i += 1
-            print("")
-        }
-        
-//        print(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "2;3;11111111111"))
-//        print(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "2;3;1111112211"))
     }
 
     override var representedObject: Any? {
@@ -48,6 +34,41 @@ class ViewController: NSViewController {
         }
     }
     
+    func updateAcoes(){
+        let message = String(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "5\n").characters.dropLast(1))
+        //print("mensagem: \(message)")
+        let acoes = message.components(separatedBy: ";")
+        var resposta = ""
+        var i = 1;
+        while i < acoes.count{
+            //print("nome: " + acoes[i])
+            resposta += "Nome: " + acoes[i] + "\n"
+            i += 1
+            //print("valor: " + acoes[i])
+            resposta += "Valor: " + acoes[i] + "\n"
+            i += 1
+            //print("quantidade: " + acoes[i])
+            resposta += "Quantidade: " + acoes[i] + "\n"
+            i += 1
+            //print("data: " + acoes[i])
+            resposta += "Data: " + acoes[i] + "\n"
+            i += 1
+            //print("porcentagem: " + acoes[i])
+            resposta += "Porcentagem: " + acoes[i] + "\n\n"
+            i += 1
+            //print("")
+        
+        }
+        resposta = String(resposta.characters.dropLast(2))
+        self.textView.isEditable = true
+        self.textView.textStorage?.mutableString.setString(resposta)
+        //self.textView.insertText(resposta)
+        self.textView.isEditable = false
+    }
+    
+    @IBAction func updateAcoes(_ sender: Any) {
+        self.updateAcoes()
+    }
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "ordemCompra" {
             if let destinationVC = segue.destinationController as? OrdemController {

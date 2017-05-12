@@ -22,10 +22,6 @@ class BrokeSocket: NSObject {
         }
     }
     
-    static func runOperation(){
-        
-    }
-    
     static func serverSocketApplication(address: String, port: Int32){
         let server = TCPServer(address: address, port: port)
         switch server.listen(){
@@ -38,7 +34,7 @@ class BrokeSocket: NSObject {
                     let mappedMessage = message!.components(separatedBy: ";")
                     switch mappedMessage[0] {
                     case "1":
-                        //codigo ordem
+                        ClientPool.efetuaOrdem(message: mappedMessage)
                         break;
                     case "2":
                         let testeCliente = Cliente(id: String(mappedMessage[1].characters.dropLast(1)), nome: "")

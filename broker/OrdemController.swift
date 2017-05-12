@@ -31,10 +31,10 @@ class OrdemController: NSViewController {
         }
         
         for acao in acoes{
-            let itemString = acao.empresa
+            let itemString = acao.getNomeEmpresa()
             botaoAcoes.addItem(withTitle: itemString)
         }
-        quantidade.stringValue = String(acoes[botaoAcoes.indexOfSelectedItem].quantidade)
+        quantidade.stringValue = String(acoes[botaoAcoes.indexOfSelectedItem].getQuantidade())
     }
     
     func messageBox(message: String){
@@ -48,7 +48,7 @@ class OrdemController: NSViewController {
     }
     
     @IBAction func selecionarItem(_ sender: NSPopUpButton) {
-        quantidade.stringValue = String(acoes[botaoAcoes.indexOfSelectedItem].quantidade)
+        quantidade.stringValue = String(acoes[botaoAcoes.indexOfSelectedItem].getQuantidade())
     }
     
     @IBAction func efetuarOrdem(_ sender: Any) {

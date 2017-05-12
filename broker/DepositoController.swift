@@ -25,7 +25,7 @@ class DepositoController: NSViewController {
     
     @IBAction func confirmarDeposito(_ sender: Any) {
         if valDeposito.doubleValue > 0{
-            ClientPool.getClienteAtivo().carteira.saldo += valDeposito.doubleValue
+            ClientPool.getClienteAtivo().carteira.addSaldo(s: valDeposito.doubleValue)
             performSegue(withIdentifier: "gerencia", sender: self)
             self.view.window?.close()
         } else {

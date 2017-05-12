@@ -22,13 +22,13 @@ class Carteira: NSObject {
     }
     
     public func addAcao(empresa: String, quantidade: Int){
-        let acao = Acao(empresa: empresa, quantidade: quantidade)
+        let acao = Acao(empresa: empresa, quantidade: quantidade, queue: self.queue)
         self.acoes.append(acao)
         
     }
     
     public func getAcoes() -> Array<Acao>{
-            return acoes
+        return acoes
     }
     
     
@@ -37,11 +37,15 @@ class Carteira: NSObject {
     }
 
     public func setSaldo(s: Double){
-        self.saldo = s;
+        self.queue.sync {
+            self.saldo = s;
+        }
     }
     
     public func addSaldo(s: Double){
-        self.saldo += s
+        self.queue.sync {
+            self.saldo += s
+        }
     }
     
 }

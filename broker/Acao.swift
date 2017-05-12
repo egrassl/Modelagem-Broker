@@ -9,13 +9,35 @@
 import Cocoa
 
 class Acao: NSObject {
-    var empresa: String
+    private var empresa: String
     //var id: Int
-    var quantidade: Int
+    private var quantidade: Int
+    private var queue: DispatchQueue
     
-    init(empresa: String, quantidade: Int){
+    init(empresa: String, quantidade: Int, queue: DispatchQueue){
         self.empresa = empresa
         //self.id = id
         self.quantidade = quantidade
+        self.queue = queue
+    }
+    
+    public func setNomeEmpresa(nome: String){
+        
+    }
+    
+    public func setQuantidade(quantidade: Int){
+        
+    }
+    
+    public func addQuantidade(quantidade: Int){
+        self.quantidade += quantidade
+    }
+    
+    public func getQuantidade() -> Int{
+        return self.quantidade
+    }
+    
+    public func getNomeEmpresa() -> String{
+        return self.empresa
     }
 }
