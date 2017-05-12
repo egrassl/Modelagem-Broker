@@ -907,9 +907,6 @@
                             </textField>
                             <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efx-Az-ToG">
                                 <rect key="frame" x="68" y="198" width="392" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="392" id="8A7-Ye-QSV"/>
-                                </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="qW9-Zd-X5x">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -924,17 +921,20 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bme-FC-aur">
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okv-oT-4dK">
                                 <rect key="frame" x="68" y="168" width="392" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="tCa-ex-Jb5">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="IKe-dd-VJq">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJW-YK-KxD">
-                                <rect key="frame" x="18" y="168" width="44" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Saldo:" id="WN4-P3-J6u">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rf-bn-hvN">
+                                <rect key="frame" x="18" y="168" width="86" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="mvW-rG-9MA"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Conta:" id="8wU-2M-LAd">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -960,38 +960,61 @@
                                     <action selector="depositoButton:" target="2Q4-o9-QTM" id="5em-sI-MD0"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bme-FC-aur">
+                                <rect key="frame" x="68" y="138" width="392" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="tCa-ex-Jb5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJW-YK-KxD">
+                                <rect key="frame" x="18" y="138" width="44" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Saldo" id="WN4-P3-J6u">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ftz-9L-inm" firstAttribute="top" secondItem="Dl2-fc-Fyr" secondAttribute="top" id="0qX-6T-glY"/>
-                            <constraint firstItem="ftz-9L-inm" firstAttribute="top" secondItem="BrP-Dk-FXZ" secondAttribute="top" constant="20" symbolic="YES" id="81a-iQ-i6U"/>
-                            <constraint firstItem="efx-Az-ToG" firstAttribute="leading" secondItem="2dR-L2-Amy" secondAttribute="trailing" constant="8" symbolic="YES" id="Ax8-6Z-iNQ"/>
-                            <constraint firstItem="efx-Az-ToG" firstAttribute="trailing" secondItem="Bme-FC-aur" secondAttribute="trailing" id="Dtk-xc-Qwb"/>
-                            <constraint firstItem="ftz-9L-inm" firstAttribute="leading" secondItem="Dl2-fc-Fyr" secondAttribute="trailing" constant="10" id="JdX-Bd-K9P"/>
-                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="trailing" secondItem="5Vz-TY-eQh" secondAttribute="trailing" id="Ls1-vz-v77"/>
-                            <constraint firstItem="5Vz-TY-eQh" firstAttribute="top" secondItem="7Rb-6d-tOK" secondAttribute="bottom" constant="12" symbolic="YES" id="M1f-BC-eWc"/>
-                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="leading" secondItem="2dR-L2-Amy" secondAttribute="leading" id="MTb-T0-Bb9"/>
-                            <constraint firstItem="Bme-FC-aur" firstAttribute="trailing" secondItem="7Rb-6d-tOK" secondAttribute="trailing" id="MUR-mc-YnT"/>
-                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="leading" secondItem="Dl2-fc-Fyr" secondAttribute="leading" id="NSl-aS-W6A"/>
-                            <constraint firstItem="efx-Az-ToG" firstAttribute="bottom" secondItem="2dR-L2-Amy" secondAttribute="bottom" id="T6v-QR-Vlc"/>
-                            <constraint firstAttribute="bottom" secondItem="5Vz-TY-eQh" secondAttribute="bottom" constant="20" symbolic="YES" id="Tfq-dJ-Va2"/>
-                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="leading" secondItem="5Vz-TY-eQh" secondAttribute="leading" id="Yr8-lz-Py8"/>
-                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="leading" secondItem="BrP-Dk-FXZ" secondAttribute="leading" constant="20" symbolic="YES" id="fDz-d6-O92"/>
-                            <constraint firstItem="efx-Az-ToG" firstAttribute="leading" secondItem="Bme-FC-aur" secondAttribute="leading" id="g5P-jS-nWT"/>
-                            <constraint firstItem="Bme-FC-aur" firstAttribute="top" secondItem="kJW-YK-KxD" secondAttribute="top" id="h4a-62-Iwt"/>
-                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="top" secondItem="kJW-YK-KxD" secondAttribute="bottom" constant="94" id="hiM-xu-Vgm"/>
-                            <constraint firstItem="ftz-9L-inm" firstAttribute="bottom" secondItem="Dl2-fc-Fyr" secondAttribute="bottom" id="jGF-7h-bm7"/>
-                            <constraint firstItem="ftz-9L-inm" firstAttribute="trailing" secondItem="efx-Az-ToG" secondAttribute="trailing" id="lJQ-zH-tl2"/>
-                            <constraint firstItem="efx-Az-ToG" firstAttribute="top" secondItem="ftz-9L-inm" secondAttribute="bottom" constant="8" id="mZo-LG-Wud"/>
-                            <constraint firstItem="efx-Az-ToG" firstAttribute="top" secondItem="2dR-L2-Amy" secondAttribute="top" id="mzB-7l-QYA"/>
-                            <constraint firstItem="Bme-FC-aur" firstAttribute="leading" secondItem="kJW-YK-KxD" secondAttribute="trailing" constant="8" symbolic="YES" id="rKn-Yo-Y6a"/>
-                            <constraint firstAttribute="trailing" secondItem="ftz-9L-inm" secondAttribute="trailing" constant="20" symbolic="YES" id="ryM-fd-kgV"/>
-                            <constraint firstAttribute="trailing" secondItem="7Rb-6d-tOK" secondAttribute="trailing" constant="20" id="wLo-oi-OrK"/>
-                            <constraint firstItem="Bme-FC-aur" firstAttribute="bottom" secondItem="kJW-YK-KxD" secondAttribute="bottom" id="xAh-rt-9yy"/>
-                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="leading" secondItem="kJW-YK-KxD" secondAttribute="leading" id="zVm-cu-rER"/>
-                            <constraint firstItem="Bme-FC-aur" firstAttribute="top" secondItem="efx-Az-ToG" secondAttribute="bottom" constant="8" id="zxY-H4-nZO"/>
+                            <constraint firstItem="2dR-L2-Amy" firstAttribute="leading" secondItem="6rf-bn-hvN" secondAttribute="leading" id="2lw-xO-NxL"/>
+                            <constraint firstItem="ftz-9L-inm" firstAttribute="trailing" secondItem="efx-Az-ToG" secondAttribute="trailing" id="5qo-sL-pSf"/>
+                            <constraint firstItem="kJW-YK-KxD" firstAttribute="top" secondItem="Bme-FC-aur" secondAttribute="top" id="7lA-s4-4JA"/>
+                            <constraint firstItem="Bme-FC-aur" firstAttribute="trailing" secondItem="7Rb-6d-tOK" secondAttribute="trailing" id="7x7-Du-aIc"/>
+                            <constraint firstItem="2dR-L2-Amy" firstAttribute="top" secondItem="Dl2-fc-Fyr" secondAttribute="bottom" constant="8" symbolic="YES" id="AkO-NO-8rd"/>
+                            <constraint firstItem="Dl2-fc-Fyr" firstAttribute="top" secondItem="BrP-Dk-FXZ" secondAttribute="top" constant="20" symbolic="YES" id="AvE-3f-Rll"/>
+                            <constraint firstItem="Dl2-fc-Fyr" firstAttribute="top" secondItem="ftz-9L-inm" secondAttribute="top" id="BK6-Cm-3lD"/>
+                            <constraint firstItem="Dl2-fc-Fyr" firstAttribute="trailing" secondItem="2dR-L2-Amy" secondAttribute="trailing" id="BuH-yg-u1z"/>
+                            <constraint firstItem="Dl2-fc-Fyr" firstAttribute="leading" secondItem="2dR-L2-Amy" secondAttribute="leading" id="Gde-3M-te9"/>
+                            <constraint firstItem="6rf-bn-hvN" firstAttribute="bottom" secondItem="okv-oT-4dK" secondAttribute="bottom" id="KQg-yM-Aoi"/>
+                            <constraint firstAttribute="trailing" secondItem="ftz-9L-inm" secondAttribute="trailing" constant="20" symbolic="YES" id="KUm-Y4-ppa"/>
+                            <constraint firstItem="Dl2-fc-Fyr" firstAttribute="leading" secondItem="BrP-Dk-FXZ" secondAttribute="leading" constant="20" symbolic="YES" id="MZx-dx-Owx"/>
+                            <constraint firstItem="efx-Az-ToG" firstAttribute="leading" secondItem="okv-oT-4dK" secondAttribute="leading" id="Pgf-7N-irg"/>
+                            <constraint firstItem="6rf-bn-hvN" firstAttribute="top" secondItem="2dR-L2-Amy" secondAttribute="bottom" constant="8" symbolic="YES" id="Spo-a8-B4O"/>
+                            <constraint firstItem="kJW-YK-KxD" firstAttribute="bottom" secondItem="Bme-FC-aur" secondAttribute="bottom" id="Trr-ve-AYO"/>
+                            <constraint firstItem="efx-Az-ToG" firstAttribute="trailing" secondItem="okv-oT-4dK" secondAttribute="trailing" id="Ui4-lI-gWd"/>
+                            <constraint firstAttribute="bottom" secondItem="5Vz-TY-eQh" secondAttribute="bottom" constant="20" symbolic="YES" id="Vc9-jF-O9D"/>
+                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="leading" secondItem="5Vz-TY-eQh" secondAttribute="leading" id="Vg3-3t-xKx"/>
+                            <constraint firstItem="kJW-YK-KxD" firstAttribute="leading" secondItem="7Rb-6d-tOK" secondAttribute="leading" id="VlI-dN-HdF"/>
+                            <constraint firstItem="6rf-bn-hvN" firstAttribute="top" secondItem="efx-Az-ToG" secondAttribute="bottom" constant="8" symbolic="YES" id="WYs-aU-16D"/>
+                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="top" secondItem="kJW-YK-KxD" secondAttribute="bottom" constant="64" id="Wfc-g6-icT"/>
+                            <constraint firstItem="2dR-L2-Amy" firstAttribute="top" secondItem="efx-Az-ToG" secondAttribute="top" id="cKE-wO-nit"/>
+                            <constraint firstItem="kJW-YK-KxD" firstAttribute="top" secondItem="6rf-bn-hvN" secondAttribute="bottom" constant="8" symbolic="YES" id="eeT-0l-qqf"/>
+                            <constraint firstItem="okv-oT-4dK" firstAttribute="trailing" secondItem="Bme-FC-aur" secondAttribute="trailing" id="ehO-2h-nnU"/>
+                            <constraint firstItem="7Rb-6d-tOK" firstAttribute="trailing" secondItem="5Vz-TY-eQh" secondAttribute="trailing" id="gO7-Ue-pji"/>
+                            <constraint firstItem="ftz-9L-inm" firstAttribute="leading" secondItem="Dl2-fc-Fyr" secondAttribute="trailing" constant="10" id="iOQ-8r-nw4"/>
+                            <constraint firstItem="Bme-FC-aur" firstAttribute="leading" secondItem="kJW-YK-KxD" secondAttribute="trailing" constant="8" symbolic="YES" id="nxL-lG-skT"/>
+                            <constraint firstItem="5Vz-TY-eQh" firstAttribute="top" secondItem="7Rb-6d-tOK" secondAttribute="bottom" constant="12" symbolic="YES" id="pWe-mV-xQn"/>
+                            <constraint firstItem="Dl2-fc-Fyr" firstAttribute="bottom" secondItem="ftz-9L-inm" secondAttribute="bottom" id="sB6-eD-bvF"/>
+                            <constraint firstItem="efx-Az-ToG" firstAttribute="leading" secondItem="2dR-L2-Amy" secondAttribute="trailing" constant="8" symbolic="YES" id="shI-uQ-DBp"/>
+                            <constraint firstItem="6rf-bn-hvN" firstAttribute="leading" secondItem="kJW-YK-KxD" secondAttribute="leading" id="spw-n3-VmN"/>
+                            <constraint firstItem="okv-oT-4dK" firstAttribute="leading" secondItem="Bme-FC-aur" secondAttribute="leading" id="uPq-Zd-wLA"/>
+                            <constraint firstItem="6rf-bn-hvN" firstAttribute="top" secondItem="okv-oT-4dK" secondAttribute="top" id="xAg-Mx-IW7"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contaBanco" destination="okv-oT-4dK" id="SsL-9n-8VV"/>
                         <outlet property="cpf" destination="efx-Az-ToG" id="Ecj-p5-UsH"/>
                         <outlet property="nome" destination="ftz-9L-inm" id="D5W-Ae-ExI"/>
                         <outlet property="saldo" destination="Bme-FC-aur" id="kzP-1b-b6k"/>

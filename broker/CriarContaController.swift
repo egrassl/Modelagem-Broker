@@ -35,7 +35,7 @@ class CriarContaController: NSViewController {
     }
     
     @IBAction func confirmarCriacao(_ sender: NSButton) {
-        let novoCliente = Cliente(id: cpf.stringValue, nome: nome.stringValue)
+        let novoCliente = Cliente(id: cpf.stringValue, nome: nome.stringValue, contaBanco: contaBanco.stringValue)
         if nome.stringValue.isEmpty || cpf.stringValue.isEmpty || contaBanco.stringValue.isEmpty || nomeUsuario.stringValue.isEmpty || senha.stringValue.isEmpty || confirmarSenha.stringValue.isEmpty {
             self.messageBox(message: "Preenchimento incompleto!")
             return
@@ -46,7 +46,7 @@ class CriarContaController: NSViewController {
             self.messageBox(message: "Cliente ou conta já existente. Tente novamente!")
             return
         } else {
-            novoCliente.contaBroker.efetivaConta(login: nomeUsuario.stringValue, senha: senha.stringValue, contaBanco: contaBanco.stringValue)
+            novoCliente.contaBroker.efetivaConta(login: nomeUsuario.stringValue, senha: senha.stringValue)
             if ClientPool.adicionaCliente(novoCliente: novoCliente) == false{
                 self.messageBox(message: "Erro ao adicionar cliente")
                 return

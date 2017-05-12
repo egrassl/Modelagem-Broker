@@ -15,9 +15,9 @@ class Carteira: NSObject {
     private var acoes = Array<Acao>()
     private let queue: DispatchQueue
     
-    init(queue: DispatchQueue) {
+    init(queue: DispatchQueue, contaBanco: String) {
         self.saldo = 0
-        self.contaBanco = ""
+        self.contaBanco = contaBanco
         self.queue = queue
     }
     
@@ -46,6 +46,14 @@ class Carteira: NSObject {
         self.queue.sync {
             self.saldo += s
         }
+    }
+    
+    public func setContaBanco(c: String){
+        self.contaBanco = c
+    }
+    
+    public func getContaBanco() -> String{
+        return self.contaBanco
     }
     
 }

@@ -15,6 +15,8 @@ class GerenciaContaController: NSViewController {
     
     @IBOutlet weak var saldo: NSTextField!
     
+    @IBOutlet weak var contaBanco: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -23,8 +25,9 @@ class GerenciaContaController: NSViewController {
             nome.stringValue = cliente.nome
             cpf.stringValue = cliente.id
             saldo.doubleValue = cliente.carteira.getSaldo()
+            contaBanco.stringValue = cliente.carteira.getContaBanco()
         } else {
-            nome.stringValue = "deu bosta"
+            nome.stringValue = "deu ruim"
         }
         
     }

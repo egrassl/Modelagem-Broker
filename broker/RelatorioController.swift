@@ -24,39 +24,14 @@ class RelatorioController: NSViewController {
     
     func updateAcoes(){
         let cliente = ClientPool.getClienteAtivo()
-        var output = ""
-        for acao in cliente.carteira.getAcoes(){
-            output += "Nome: \(acao.getNomeEmpresa())\n"
-            output += "Quantidade: \(acao.getQuantidade())\n\n"
-        }
-        output = String(output.characters.dropLast(2))
+        let output = cliente.obterRelatorioAcoes()
         self.acoesTextView.textStorage?.mutableString.setString(output)
         self.acoesTextView.isEditable = false
     }
     
     func updateOrdens(){
         let cliente = ClientPool.getClienteAtivo()
-        var output = ""
-        for ordem in cliente.orderns{
-            output += "Nome: \(ordem.acao.getNomeEmpresa())\n"
-            switch ordem.tipo {
-            case 1:
-                output += "Tipo: Compra\n"
-                break
-            case 2:
-                output += "Tipo: Venda\n"
-                break
-            default:
-                break
-            }
-            output += "Quantidade: \(ordem.acao.getQuantidade())\n"
-            output += "Valor: \(ordem.valor)\n\n"
-        }
-        if output == ""{
-            output = "Não há ordens!"
-        }else{
-            output = String(output.characters.dropLast(2))
-        }
+        let output = cliente.obterRelatorioOrdens()
         self.ordensTextView.textStorage?.mutableString.setString(output)
         self.ordensTextView.isEditable = false
     }

@@ -32,7 +32,7 @@ class Conta: NSObject {
     }
     
     
-    public func efetivaConta(login: String, senha: String, contaBanco: String){
+    public func efetivaConta(login: String, senha: String){
         self.estaLogado = true
         self.login = login
         self.senha = senha
