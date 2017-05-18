@@ -23,6 +23,7 @@ class ViewController: NSViewController {
 //        self.textView.insertText(updateAcoes())
 //        self.textView.isEditable = false
         BrokeSocket.backgroundServer(address: BrokeSocket.destinationIP, port: BrokeSocket.port)
+        
         self.updateAcoes()
         
         
@@ -35,7 +36,7 @@ class ViewController: NSViewController {
     }
     
     func updateAcoes(){
-        let message = String(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "5\n").characters.dropLast(1))
+        let message = BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "5\n")
         //print("mensagem: \(message)")
         let acoes = message.components(separatedBy: ";")
         var resposta = ""
@@ -51,10 +52,7 @@ class ViewController: NSViewController {
             resposta += "Quantidade: " + acoes[i] + "\n"
             i += 1
             //print("data: " + acoes[i])
-            resposta += "Data: " + acoes[i] + "\n"
-            i += 1
-            //print("porcentagem: " + acoes[i])
-            resposta += "Porcentagem: " + acoes[i] + "\n\n"
+            resposta += "Tipo: " + acoes[i] + "\n\n"
             i += 1
             //print("")
         
@@ -68,6 +66,7 @@ class ViewController: NSViewController {
     
     @IBAction func updateAcoes(_ sender: Any) {
         self.updateAcoes()
+        BrokeSocket.updateOrdens(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, intervalo: 20)
     }
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.identifier == "ordemCompra" {

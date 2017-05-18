@@ -42,13 +42,10 @@ class CriarContaController: NSViewController {
         } else if senha.stringValue != confirmarSenha.stringValue {
             self.messageBox(message: "A confirmação de senha está incorreta, tentar novamente")
             return
-        } else if ClientPool.clienteExiste(novoCliente: novoCliente){
-            self.messageBox(message: "Cliente ou conta já existente. Tente novamente!")
-            return
         } else {
             novoCliente.contaBroker.efetivaConta(login: nomeUsuario.stringValue, senha: senha.stringValue)
             if ClientPool.adicionaCliente(novoCliente: novoCliente) == false{
-                self.messageBox(message: "Erro ao adicionar cliente")
+                self.messageBox(message: "Cliente ou conta já existente. Tente novamente!")
                 return
             }
             ClientPool.ativaLogin(login: nomeUsuario.stringValue, senha: senha.stringValue)

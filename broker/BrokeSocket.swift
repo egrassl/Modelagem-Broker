@@ -29,21 +29,22 @@ class BrokeSocket: NSObject {
             while true{
                 if let client = server.accept(){
                     let d = client.read(1024*10)
-                    let message = String(bytes: d!, encoding: .utf8)
-                    print(message!)
-                    let mappedMessage = message!.components(separatedBy: ";")
+                    var message = String(bytes: d!, encoding: .utf8)!
+                    print(message)
+                    if message.characters.last == "\n"{
+                        message = String(message.characters.dropLast(1)).lowercased()
+                    }
+                    let mappedMessage = message.components(separatedBy: ";")
                     switch mappedMessage[0] {
                     case "1":
-                        ClientPool.efetuaOrdem(message: mappedMessage)
                         break;
                     case "2":
-                        let testeCliente = Cliente(id: String(mappedMessage[1].characters.dropLast(1)), nome: "")
-                        if ClientPool.clienteExiste(novoCliente: testeCliente){
+                        let testeCliente = Cliente(id: mappedMessage[1], nome: "")
+                        if ClientPool.clienteExisteNesteBroker(novoCliente: testeCliente){
                             client.send(string: "true\n")
                         } else {
                             client.send(string: "false\n")
                         }
-                        //codigo e cadastrado
                         break;
                         
                     default:
@@ -70,10 +71,16 @@ class BrokeSocket: NSObject {
         case .success:
             switch client.send(string: socketMessage){
             case .success:
-                guard let data = client.read(1024*10, timeout: 2) else {return ""}
+                guard let data = client.read(1024*10, timeout: 30) else {return ""}
                 client.close()
                 if let response = String(bytes: data, encoding: .utf8){
-                    return response
+                    if response.characters.last == "\n"{
+                        //print("tirei o barra ene")
+                        print(response)
+                        return String(response.characters.dropLast(1)).lowercased()
+                    }else {
+                        return response.lowercased()
+                    }
                 } else {
                     return ""
                 }
@@ -85,6 +92,30 @@ class BrokeSocket: NSObject {
         }
         client.close()
         return ""
+    }
+    
+    static func updateOrdens(destinationIP: String, port: Int, intervalo: Int){
+        let idOperacao = "7"
+        var message = ""
+        let cliente = ClientPool.getClienteAtivo()
+        let idBroker = "3"
+        var idOrdem: String
+        var resposta: String
+        var mappedResposta: [String]
+        var listaOrdens = cliente.orderns
+        for ordem in listaOrdens{
+            
+            //print(String(describing: cliente.orderns.index(of: ordem)!))
+            idOrdem = cliente.id + ":" + (String(ordem.id))
+            message = idOperacao + ";" + idBroker + ";" + idOrdem + "\n"
+            resposta = sendStringInSocket(destinationIP: destinationIP, port: port, message: message)
+            mappedResposta = resposta.components(separatedBy: ";")
+            if resposta != ""{
+                ClientPool.updateOrdem(ordem: ordem, status: mappedResposta[0], saldo: mappedResposta[1])
+            }
+            print("mensagem: " + message)
+        }
+        
     }
     
 }

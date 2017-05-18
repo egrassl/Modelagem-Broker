@@ -16,26 +16,33 @@ class Cliente: NSObject {
     var nome: String
     var orderns = Array<Ordem>()
     var carteira:Carteira
+    private var quantOrdens: Int
     let queue = DispatchQueue.init(label: "cliente")
     
     init(id: String = "", nome: String = "", contaBanco: String = "") {
         contaBroker = Conta()
         self.id = id
         self.nome = nome
+        self.quantOrdens = 0
         self.carteira = Carteira(queue: self.queue, contaBanco: contaBanco)
         super.init()
         let startNumber = 1000
-        let empresas = ["KUAT", "SONY", "NASA", "VALE", "ITAU", "NIKE", "DELL", "ASUS", "FIAT", "FORD"]
+        let empresas = ["KUAT", "SONY", "KNOR", "DELL"]
         for empresa in empresas {
             self.carteira.addAcao(empresa: empresa, quantidade: startNumber)
         }
     }
     
+    private func addOrdem(ordem: Ordem){
+        self.orderns.append(ordem)
+        self.quantOrdens += 1
+    }
+    
     public func efetuarOrdem(acao: Acao, valor: Double, quantidade: Int,tipo: Int) -> Bool{
         
-        let pregaoAberto = String(BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "4\n").characters.dropLast(1))
+        let pregaoAberto = BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: "4\n")
         //print(pregaoAberto)
-        if pregaoAberto == "FECHADO"{
+        if pregaoAberto == "fechado"{
             return false
         }
         
@@ -58,20 +65,16 @@ class Cliente: NSObject {
         
         
         let novaAcao = Acao(empresa: acao.getNomeEmpresa(), quantidade: quantidade, queue: self.queue)
-        let novaOrdem = Ordem(acao: novaAcao, valor: valor, tipo: tipo)
-        self.orderns.append(novaOrdem)
+        let novaOrdem = Ordem(acao: novaAcao, valor: valor, tipo: tipo, id: quantOrdens)
+        self.addOrdem(ordem: novaOrdem)
         
         //codigo socket aqui
         
         
-        let idOrdem = String(self.id) + ":" + String(describing: orderns.index(of: novaOrdem)!)
+        let idOrdem = String(self.id) + ":" + String(novaOrdem.id)
         let message = "1;" + "3;" + idOrdem + ";" + sTipo + ";" + String(novaAcao.getNomeEmpresa()) + ";" + String(novaAcao.getQuantidade()) + ";" + String(novaOrdem.valor) + "\n"
         BrokeSocket.sendStringInSocket(destinationIP: BrokeSocket.destinationIP, port: BrokeSocket.port, message: message)
         return true
-    }
-    
-    public func removerOrdem(){
-        
     }
     
     public func obterRelatorioAcoes() -> String{
@@ -109,9 +112,7 @@ class Cliente: NSObject {
         return output
     }
     
-    public func gerenciaConta(){
-        
-    }
+    
     
 //    public func criarConta(login: String, senha: String){
 //        self.contaBroker.efetivaConta(login: login, senha: senha)
